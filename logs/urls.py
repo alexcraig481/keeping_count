@@ -9,4 +9,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('logs/', views.logs, name="logs"),
     path('logs/<int:log_id>/', views.log_entry, name='log_entry'),
+    path('new_entry/', views.new_entry, name='new_entry'),
 ]
