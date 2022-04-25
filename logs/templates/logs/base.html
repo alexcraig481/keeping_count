@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keeping Count</title>
+</head>
+<body>
+    <p>
+        <a href ="{% url 'logs:index' %}">Keeping Count</a>
+        <a href ="{% url 'logs:logs' %}">Logs</a>
+    </p>
+    {% block content %}{% endblock content %}
+</body>
+</html>
