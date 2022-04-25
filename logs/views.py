@@ -17,6 +17,7 @@ def logs(request):
     return render(request, 'logs/logs.html', context)
 
 
+@login_required
 def log_entry(request, log_id):
     """An individual log entry"""
     entry = Log.objects.get(id=log_id)
@@ -24,6 +25,7 @@ def log_entry(request, log_id):
     return render(request, 'logs/log_entry.html', context)
 
 
+@login_required
 def new_entry(request):
     """Create a new log entry"""
     if request.method != 'POST':
@@ -38,6 +40,7 @@ def new_entry(request):
     return render(request, 'logs/new_entry.html', context)
 
 
+@login_required
 def edit_entry(request, log_id):
     """Edit an existing log entry"""
     entry = Log.objects.get(id=log_id)
