@@ -1,7 +1,15 @@
 {% extends "logs/base.html" %}
 
 {% block content %}
-
+<h1>Welcome to Keeping Count</h1>
 <p>Track of the relationship moments so your memory doesn't have to. </p>
 
+{% if user.is_authenticated %}
+      Hello, {{ user.username }}
+{% else %}
+      <div>
+            <a href="">Sign Up</a>
+            <a href="{% url 'users:login' %}">Login</a>
+      </div>
+{% endif %}
 {% endblock content %}
