@@ -7,5 +7,6 @@ app_name = 'logs'
 urlpatterns = [
     #Home page
     path('', views.index, name='index'),
-    path('dates/', views.logs, name="logs")
+    path('logs/', views.logs, name="logs"),
+    path('logs/<int:log_id>/', views.log_entry, name='log_entry'),
 ]
