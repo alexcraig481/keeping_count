@@ -36,4 +36,19 @@ def new_entry(request):
     return render(request, 'logs/new_entry.html', context)
 
 
+def edit_entry(request, log_id):
+    """Edit an existing log entry"""
+    entry = Log.objects.get(id=log_id)
+
+    if request.method != 'POST':
+        # Fill new form with existing content to edit
+        form = EntryForm(instance=entry)
+    else:
+        form = EntryForm(instance=entry, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('logs:logs')
+
+    context = {'log': entry, 'form': form}
+    return render(request, 'logs/edit_entry.html', context)
 

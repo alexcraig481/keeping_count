@@ -2,12 +2,15 @@
 {% block content %}
 
     <h1>Logs</h1>
-
+    <p> <a href ="{% url 'logs:new_entry' %}">New Entry</a></p>
     <ul>
         {% for log in logs %}
             <li>
                 <p><a href="{%url 'logs:log_entry' log.id %}">{{ log.date_added|date:'M d, Y H:i'}}</a> </p>
                 <p>{{log.text|linebreaks }}</p>
+                <p>
+                    <a href="{% url 'logs:edit_entry' log.id%}">Edit entry</a>
+                </p>
             </li>
         {% empty %}
             <li>No logs have been added yet.</li>
