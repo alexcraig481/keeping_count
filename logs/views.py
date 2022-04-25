@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . models import Log
 from .forms import EntryForm
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -8,6 +9,7 @@ def index(request):
     return render(request, 'logs/index.html')
 
 
+@login_required
 def logs(request):
     """Index of logs by date"""
     user_logs = Log.objects.order_by('date_added')
