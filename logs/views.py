@@ -22,7 +22,7 @@ def logs(request):
 def log_entry(request, log_id):
     """An individual log entry"""
     entry = Log.objects.get(id=log_id)
-    if log_entry.owner != request.user:
+    if entry.owner != request.user:
         raise Http404
     context = {'log': entry}
     return render(request, 'logs/log_entry.html', context)
