@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
-{% block content %}
-      <h1>Welcome to Keeping Count</h1>
-      <p>Track of the relationship moments so your memory doesn't have to. </p>
-
-{% if user.is_authenticated %}
-      Hello, {{ user.username }}
-      <a href="{% url 'users:logout' %}">Log out</a>
-{% else %}
-      <div>
-            <a href="{% url 'users:register' %}">Sign Up</a>
-            <a href="{% url 'users:login' %}">Login</a>
+{% block page_header%}
+      <div class="jumbotron">
+            <h1 class="display-3">Track meaningful moments</h1>
+            <p class="lead">"The fallibility of memory is something that is now well documented
+                  and publicized. Like it or not, you can’t trust the contents of your brain and
+                  this is considered verbatim in a court of law." Adam Sinicki
+            </p>
+            <p>Capture the details of life as they happen.</p>
+            <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
       </div>
-{% endif %}
-{% endblock content %}
+{% endblock page_header %}
+
+
