@@ -1,20 +1,27 @@
 {% extends "base.html" %}
-{% block content %}
 
-    <h1>Logs</h1>
-    <p> <a href ="{% url 'logs:new_entry' %}">New Entry</a></p>
-    <ul>
-        {% for log in logs %}
-            <li>
-                <p><a href="{%url 'logs:log_entry' log.id %}">{{ log.date_added|date:'M d, Y H:i'}}</a> </p>
-                <p>{{log.text|linebreaks }}</p>
-                <p>
-                    <a href="{% url 'logs:edit_entry' log.id%}">Edit entry</a>
-                </p>
-            </li>
-        {% empty %}
-            <li>No logs have been added yet.</li>
-        {% endfor %}
-    </ul>
+{% block page_header %}
+<h3>Your Logs</h3>
+{% endblock page_header %}
+
+{% block content %}
+    <p>
+        <a href ="{% url 'logs:new_entry' %}">New Entry</a></p>
+    </p>
+
+
+    {% for log in logs %}
+    <div class="card mb-3">
+        <h4 class="card-header">
+            <a href="{%url 'logs:log_entry' log.id %}">{{ log.date_added|date:'M d, Y H:i'}}</a>
+            <small><a href="{% url 'logs:edit_entry' log.id%}">Edit entry</a></small>
+        </h4>
+        <div class="card-body">
+            {{log.text|linebreaks }}
+        </div>
+    </div>
+    {% empty %}
+    <p>No logs have been added yet.</p>
+    {% endfor %}
 
 {% endblock content %}
