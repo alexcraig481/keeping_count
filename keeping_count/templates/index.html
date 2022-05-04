@@ -3,13 +3,15 @@
 {% block page_header%}
       <div class="jumbotron">
             <h1 class="display-3">Track meaningful moments</h1>
-            <p class="lead">"The fallibility of memory is something that is now well documented
-                  and publicized. Like it or not, you can’t trust the contents of your brain and
-                  this is considered verbatim in a court of law." Adam Sinicki
+            <p class="lead">"Emotional abuse is one of the most difficult types of abuse to identify because it is so
+                  hidden, insidious, and confusing. The damage caused by emotional abuse, while significant, can occur
+                  so slowly that the victim hardly notices it at first. Like the abuse itself, the damage can be so
+                  subtle that it is easy for victims to minimize it, deny it, or believe they are imaging it."
+                  Beverly Engel
             </p>
-            <p>Capture the details of life as they happen.</p>
+            <p> It is NOT your imagination. Create the evidence. Record the details as they happen.
+            </p>
              {% if user.is_authenticated %}
-
             {% else %}
             <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
             {% endif %}

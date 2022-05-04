@@ -2,19 +2,56 @@
 {% load bootstrap4 %}
 
 {% block page_header %}
-  <h2>New Entry</h2>
+  <h1>New Entry</h1>
 {% endblock page_header%}
 
 
 {% block content %}
-    <p>Prompts</p>
-    <ul>
-        <li>Do you feel you have no voice in the relationship, like you are unimportant?</li>
-        <li>Do you feel you a failure as a partner even though you work hard to please your partner or "get it right"?</li>
-        <li>Does you partner constantly blame or criticize you?</li>
-        <li>Does you partner need to be control all or most aspects of your life?</li>
-        <li>Does you partner routinely ridicule, dismiss, or disregard your opinion, thoughts, suggestions, and feelings?</li>
-    </ul>
+    <div style ="padding-top:3%; padding-bottom:5%">
+        <h2 style = "font-size:1.5em ">Your Rights</h2>
+        <h3 style= "font-size: 1.15em; padding-top:1% ">Before reading the questions and starting your entry, please remember and repeat the following:</h3>
+            <ul>
+                <li>I have the right to my own needs and feelings and to have them be as important as anyone's else's</li>
+                <li>I have the right to experience my feelings and to express them, if I want to.</li>
+                <li>I have the right to not be held responsible for other people's feelings.</li>
+                <li>I have the right to express my opinions.</li>
+                <li>I have the right to say no.</li>
+                <li>I have the right to set limits and boundaries.</li>
+                <li>I have the right to be listened to respectfully.</li>
+                <li>I have the right to choose how to live my life.</li>
+                <li>I have the right to decide what my priorities are.</li>
+                <li>I have the right to be independent if I want to.</li>
+                <li>I have the right to decide how I spend my time</li>
+                <li>I have the right to change myself, my behaviors, my values, my life situation, and my life.</li>
+            </ul>
+        <p>- Taken from "Boundaries after a Pathological Relationship" by Adelyn Birch</p>
+
+    </div>
+    <div>
+        <h2 style="font-size:1.5em">Question Prompts</h2>
+            <ol>
+                <li>Do you feel you have no voice in the relationship, like you are unimportant?</li>
+                <li>Are you regularly accused of overreacting, being over-dramatic or too sensitive?</li>
+                <li>Do you feel like a failure as a partner even though you work hard to please your partner or
+                    "get it right"?</li>
+                <li>Does you partner constantly blame or criticize you?</li>
+                <li>Does it feel forbidden to express negative thoughts and emotions?</li>
+                <li>Does your partner seem impossible to please? Is there constant complaining about some aspect of
+                    your personality, your looks, or the way you choose to live your life?</li>
+                <li>Does you partner need to be control all or most aspects of your life?</li>
+                <li>Does you partner routinely ridicule, dismiss, or disregard your opinion, thoughts, suggestions,
+                    and feelings?</li>
+                <li>Does it feel like you are expected to live by a separate set of rules that your partner created?</li>
+                <li>Do you find yourself apologizing a lot?</li>
+                <li>Does your partner tease you, make fun of you, or use sarcasm as a way to put you down or degrade
+                    you? Does your partner claim it was a joke or an attempt to help you?</li>
+                <li>Do you find yourself making excuses for your partner's behavior?</li>
+                <li>Do you feel sure your partner's intent is not malicious and therefore any hurtful words or behavior
+                    are a misinterpretation on your part?</li>
+            </ol>
+            <p>- From or Inspired by "Escaping Emotional Abuse" by Beverly Engel</p>
+    </div>
+
     <form action="{%url 'logs:new_entry' %}" method='post' class="form">
         {% csrf_token %}
         {% bootstrap_form form %}
